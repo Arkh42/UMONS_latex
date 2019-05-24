@@ -1,0 +1,72 @@
+
+%%        %%
+% PREAMBLE %
+% ======== %
+
+
+
+% Document class
+% --------------
+\documentclass{standalone} class
+
+
+% Font
+% ----
+\usepackage{fontspec}
+\setmainfont[%
+	SmallCapsFont={* Caps},%	enable small capital font family
+	SlantedFont={* Slanted},%	enable slanted font family
+]{Latin Modern Roman}
+
+
+% Package Under Test
+% ------------------
+\usepackage{umons-colors}
+
+
+
+%%        %%
+% DOCUMENT %
+% ======== %
+
+
+
+\begin{document}
+
+
+	\begin{testcolors}[RGB,HTML,gray]
+		% ### Global UMONS colors
+		\testcolor{umonsRed}
+		\testcolor{umonsBlue}
+		\testcolor{umonsGray}
+		\testcolor{umonsYellow}
+		% ### Faculty-related colors
+		\testcolor{umonsFAUColor}
+		\testcolor{umonsArchiColor}
+		%
+		\testcolor{umonsFMPColor}
+		\testcolor{umonsMedicColor}
+		%
+		\testcolor{umonsFPMsColor}
+		\testcolor{umonsEngColor}
+		%
+		\testcolor{umonsFPSEColor}
+		\testcolor{umonsFPEColor}
+		\testcolor{umonsPsyColor}
+		%
+		\testcolor{umonsFSColor}
+		\testcolor{umonsSciColor}
+		%
+		\testcolor{umonsFTIColor}
+		\testcolor{umonsEIIColor}
+		%
+		\testcolor{umonsFWEGColor}
+		\testcolor{umonsWawaColor}
+		%
+		\testcolor{umonsSHSColor}
+		%
+		\testcolor{umonsLawColor}
+	\end{testcolors}
+
+
+\end{document}
