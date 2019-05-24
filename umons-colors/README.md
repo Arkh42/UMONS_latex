@@ -45,3 +45,8 @@ For the [LuaLaTeX + `testcolors`] unit test, I could not use the `standalone` cl
 because errors were genereted.
 I think that it might have a clash.
 Hence, the use of `minimal` instead.
+
+All unit tests have been compiled:
+* with compilers (engines) included in the TeXLive (2017) distribution,
+* under the TeXstudio editor,
+* on a Windows 10 OS.
