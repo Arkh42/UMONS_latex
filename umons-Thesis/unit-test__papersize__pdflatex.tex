@@ -1,0 +1,50 @@
+
+%%        %%
+% PREAMBLE %
+% ======== %
+
+
+
+% Document class
+% --------------
+\documentclass[papersize=a4]{umons-Thesis}%
+
+
+% Font
+% ----
+\usepackage{lmodern}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+% Package Under Test
+% ------------------
+%\usepackage{umons-colors}
+
+% For testing the 'papersize' option
+\makeatletter
+	\@ifpackageloaded{geometry}{%
+		\geometry{showframe}%
+	}{%
+		\usepackage[showframe,pass]{geometry}%
+	}
+\makeatother
+
+\usepackage{lipsum}
+
+
+
+%%        %%
+% DOCUMENT %
+% ======== %
+
+
+
+\begin{document}
+
+
+	\lipsum
+
+
+\end{document}
