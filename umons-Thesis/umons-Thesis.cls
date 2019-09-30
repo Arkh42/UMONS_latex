@@ -11,7 +11,7 @@
 
 % Class declaration
 % -----------------
-\ProvidesClass{umons-Thesis}[2019/09/29 A class to write PhD thesis according to the UMONS format]
+\ProvidesClass{umons-Thesis}[2019/09/30 A class to write PhD thesis according to the UMONS format]
 
 
 
@@ -64,10 +64,12 @@
 % New options
 % -----------
 \DeclareStringOption{papersize}
+\DeclareStringOption{fontsize}
 
-%
-%\DeclareBoolOption[initialValue]{keyName}
-%\DeclareComplementaryOption{keyName}{complementName}% Example: \DeclareBoolOption{draft}\DeclareComplementaryOption{final}{draft}
+\DeclareBoolOption[true]{twoside}
+\DeclareComplementaryOption{oneside}{twoside}
+
+
 %
 %\DeclareVoidOption{optionName}{code}
 
@@ -101,14 +103,29 @@
 }{}
 
 
+% Option: fontsize
+% -----------------
+\PassOptionsToClass{\umonsThesis@fontsize}{memoir}
+
+
+% Option: twoside, oneside
+% ------------------------
+\ifbool{umonsThesis@twoside}{% if true
+	\PassOptionsToClass{twoside}{memoir}
+}{% else
+	\PassOptionsToClass{oneside}{memoir}
+}
+
+
 
 % Load 'memoir' class
 % -------------------
 \LoadClass{memoir}
 
 
-% Option: papersize
-% -----------------
+
+% Option: papersize (umons)
+% -------------------------
 
 \ifdefstring{\umonsThesis@papersize}{umons}{% if true
 		\DisemulatePackage{geometry}
@@ -143,8 +160,4 @@
 
 % Use of declared BoolOption
 % --------------------------
-%\ifbool{umonsThesis@keyName}{% if true
-%	% code if true
-%}{% else
-%	% code if false
-%}
+
