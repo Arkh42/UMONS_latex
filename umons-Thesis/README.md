@@ -15,19 +15,19 @@ Class options
 -------------
 
 
-Values written in *italic* are default values.
+Values written in **bold** are default values.
 
 
-|	Options		|	Value			|	Description														|
-|	:-----:		|	:---:			|	:----------														|
-|	papersize	|	*a4*, a5, umons	|	Formats the paper size (umons is for the final printed format).	|			|
-|	pagelayout	|	*default*, iso, semiiso, medieval	|	Formats the layout of the page (text width, margins).	|
-|	fontname	|	*latinmodern*, newcentury, bookman	|	Selects the font family.					|
-|	fontsize	|	9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt, 25pt, 30pt, 36pt, 48pt, 60pt	|	Selects the normal font size (same options as `memoir`).	|
-|	twoside		|	*true*, false	|	Prints the text recto-verso.									|
-|	oneside		|	true, *false*	|	Prints the text recto only (complementary to twoside).			|						|
-|	final		|	*true*, false	|	Prints the text for final version.								|	
-|	draft		|	true, *false*	|	Prints black boxes to show overfull \hbox and others.			|
+|	Options		|	Value				|	Description														|
+|	:-----:		|	:---:				|	:----------														|
+|	papersize	|	**a4**, a5, umons	|	Formats the paper size (umons is for the final printed format).	|			|
+|	pagelayout	|	**default**, iso, semiiso, medieval	|	Formats the layout of the page (text width, margins).	|
+|	fontname	|	**latinmodern**, newcentury, bookman	|	Selects the font family.					|
+|	fontsize	|	9pt, 10pt, **11pt**, 12pt, 14pt, 17pt, 20pt, 25pt, 30pt, 36pt, 48pt, 60pt	|	Selects the normal font size (same options as `memoir`).	|
+|	twoside		|	**true**, false		|	Prints the text recto-verso.									|
+|	oneside		|	true, **false**		|	Prints the text recto only (complementary to twoside).			|						|
+|	final		|	**true**, false		|	Prints the text for final version.								|	
+|	draft		|	true, **false**		|	Prints black boxes to show overfull \hbox and others.			|
 
 
 
@@ -37,10 +37,10 @@ Unit tests
 
 ### List of tested features
 * compilers [1 effective test]
-	- [] LaTeX (+ DVI to PDF),
+	- [ ] LaTeX (+ DVI to PDF),
 	- [X] PDFLaTeX;
-	- [] LuaLaTeX, and
-	- [] XeLaTeX.
+	- [ ] LuaLaTeX, and
+	- [ ] XeLaTeX.
 * commands and environments [0 effective test]
 * options [17 effective tests]
 	- [X] papersize = {a4, a5, umons}
