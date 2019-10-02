@@ -67,7 +67,7 @@
 \DeclareStringOption[a4]{papersize}
 \DeclareStringOption[default]{pagelayout}
 
-\DeclareStringOption{fontname}[latinmodern]
+\DeclareStringOption[latinmodern]{fontname}
 \DeclareStringOption[11pt]{fontsize}
 
 \DeclareBoolOption[true]{twoside}
