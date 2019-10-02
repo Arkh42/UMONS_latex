@@ -1,0 +1,50 @@
+
+%%        %%
+% PREAMBLE %
+% ======== %
+
+
+
+% Document class
+% --------------
+\documentclass[draft]{umons-Thesis}%
+
+
+
+% Package Under Test
+% ------------------
+
+% For testing the 'papersize' option
+\makeatletter
+	\@ifpackageloaded{geometry}{%
+		\geometry{showframe}%
+	}{%
+		\usepackage[showframe,pass]{geometry}%
+	}
+\makeatother
+
+\usepackage{lipsum}
+
+
+
+%%        %%
+% DOCUMENT %
+% ======== %
+
+
+
+\begin{document}
+
+	A too large table that will create an overfull \verb|\hbox| warning:
+	
+	\begin{tabular*}{1.2\textwidth}{lcr}
+		left & center & right\\
+		left & center & right
+	\end{tabular*}
+
+	é
+	
+	\lipsum
+
+
+\end{document}
