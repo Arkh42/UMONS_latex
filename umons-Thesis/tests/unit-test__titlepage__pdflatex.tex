@@ -1,0 +1,74 @@
+
+%%        %%
+% PREAMBLE %
+% ======== %
+
+
+% Document class
+% --------------
+
+\documentclass[%
+	% Page layout
+	papersize=a4,%
+	pagelayout=default,%
+	% Fonts and encoding
+	fontname=latinmodern,%
+	fontsize=11pt,%
+	% Printing
+	twoside,%
+	final,%
+	% Faculty
+	faculty=fpms%
+]{umons-Thesis}%
+
+
+
+% Packages for test
+% -----------------
+
+% For testing the 'papersize' option
+\makeatletter
+%	\@ifpackageloaded{geometry}{%
+%		\geometry{showframe}%
+%	}{%
+%		\usepackage[showframe,pass]{geometry}%
+%	}
+\makeatother
+
+\usepackage{lipsum}
+
+
+
+%%        %%
+% DOCUMENT %
+% ======== %
+
+
+% Metadata
+% --------
+
+\author{Alexandre \textsc{Quenon}}
+%\setauthor{Alexandre \textsc{Quenon}}
+
+\date{\today}
+
+\title{My title}
+%\settitle{My custom title}
+
+\committeeMembers{%
+	Prof. X, Chair \\
+	Prof. Y, Thesis director \\
+	Prof. Z, Thesis co-director \\
+	Member A
+}
+
+
+
+% Text
+% ----
+
+\begin{document}
+	
+	\umonsThesisTitlePage
+
+\end{document}

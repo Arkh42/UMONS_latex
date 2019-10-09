@@ -30,11 +30,6 @@
 \RequirePackage{etoolbox}
 
 
-% Packages needed in the declared options
-% ---------------------------------------
-%\RequirePackage[options]{package-name}
-
-
 % Commands declaration needed in the declared options
 % ---------------------------------------------------
 %\newcommand*{cmd}{def}
@@ -75,6 +70,8 @@
 
 \DeclareBoolOption[true]{final}
 \DeclareComplementaryOption{draft}{final}
+
+\DeclareStringOption{faculty}
 
 %\DeclareVoidOption{optionName}{code}
 
@@ -173,6 +170,7 @@
 
 
 
+% -------------------
 % Load 'memoir' class
 % -------------------
 \LoadClass[onecolumn,% only one column of text on a page
@@ -225,12 +223,89 @@
 }
 
 
+% Colors
+% ------
+
+% Load umons-color package
+\RequirePackage{umons-colors}
 
 
-% Call to specific packages
-% -------------------------
-%\RequirePackage[options]{package-name}
-%\RequirePackageWithOptions{package-name}
+% Title page
+% ----------
+
+% Define the elements
+\newcommand*{\umons}{University of Mons}
+
+\newcommand*{\umonsFaculty}{\relax}
+\ifdefstring{\umonsThesis@faculty}{fau}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Architecture and Urban Planning}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fmp}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Medicine and Pharmacy}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fpms}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Engineering}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fpse}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Psychology and Education}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fs}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Science}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fti}{% if true
+	\renewcommand*{\umonsFaculty}{Faculty of Translation and Interpretation}
+}{}
+\ifdefstring{\umonsThesis@faculty}{fweg}{% if true
+	\renewcommand*{\umonsFaculty}{Warocqué School of Business and Economics}
+}{}
+\ifdefstring{\umonsThesis@faculty}{shs}{% if true
+	\renewcommand*{\umonsFaculty}{School of Human and Social Sciences}
+}{}
+\ifdefstring{\umonsThesis@faculty}{law}{% if true
+	\renewcommand*{\umonsFaculty}{Law School}
+}{}
+
+\newcommand*{\submissionFor}{A dissertation submitted in partial fulfillment of the requirements for the degree of}
+\newcommand*{\phdDegree}{Doctor of Philosophy}
+
+\newcommand{\phdCommittee}{PhD Committee}
+\newcommand{\committeeMembers}[1]{\def\umonsCommitteeMembers{#1}}
+
+% Assemble the title page
+\newcommand*{\titleThesisUMONS}{\begingroup%
+	%
+	\centering
+		{\bfseries\umons}\par
+		{\umonsFaculty}\par
+			\vspace*{5.0\baselineskip}
+		{\Huge\bfseries\thetitle}\par
+			\vspace*{2.0\baselineskip}
+		{\large\theauthor}\par
+			\vspace*{5.0\baselineskip}
+		\submissionFor\par
+		{\scshape\phdDegree}\par
+	\vfill
+	%
+	\flushleft
+		{\bfseries\phdCommittee}\dotfill\par
+	\flushright
+		\hbox{%
+			\hspace*{0.1\textwidth}
+			\parbox[b]{0.7\textwidth}{%
+				{\umonsCommitteeMembers}\par
+			}
+		}
+	\vfill
+\endgroup}
+
+% High-level command
+\newcommand{\umonsThesisTitlePage}{%
+	\begin{titlingpage}
+		\titleThesisUMONS
+	\end{titlingpage}
+}
+
+
 
 
 % Commands definition
@@ -242,9 +317,3 @@
 %\newcommand{cmd}{def}
 %\renewcommand{cmd}{def}
 %\DeclareRobustCommand{cmd}{def}
-
-
-
-% Use of declared BoolOption
-% --------------------------
-
