@@ -28,6 +28,7 @@ Values written in **bold** are default values.
 |	oneside		|	true, **false**		|	Prints the text recto only (complementary to twoside).			|						|
 |	final		|	**true**, false		|	Prints the text for final version.								|	
 |	draft		|	true, **false**		|	Prints black boxes to show overfull \hbox and others.			|
+|	faculty		|	fau, fmp, fpms, fpse, fs, fti, fweg, shs, law	|	Defines faculty-related options and colors.	|
 
 
 

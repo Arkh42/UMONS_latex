@@ -273,7 +273,6 @@
 
 % Assemble the title page
 \newcommand*{\titleThesisUMONS}{\begingroup%
-	%
 	\centering
 		{\bfseries\umons}\par
 		{\umonsFaculty}\par
@@ -288,14 +287,17 @@
 	%
 	\flushleft
 		{\bfseries\phdCommittee}\dotfill\par
-	\flushright
+	\vspace*{\baselineskip}
 		\hbox{%
-			\hspace*{0.1\textwidth}
+			\hspace*{0.05\textwidth}
 			\parbox[b]{0.7\textwidth}{%
-				{\umonsCommitteeMembers}\par
+				\vbox{%
+					{\umonsCommitteeMembers}\par
+				}
 			}
+			\hspace{0.25\textwidth}
 		}
-	\vfill
+	\vfill\null
 \endgroup}
 
 % High-level command
@@ -304,6 +306,25 @@
 		\titleThesisUMONS
 	\end{titlingpage}
 }
+
+
+% Abstract page
+% -------------
+
+% Title: like a chapter
+\abstractnum
+
+% Text: normal size
+\renewcommand{\abstracttextfont}{\normalfont\normalsize}
+
+% Define environment to hide some \clearpage mechanism
+\newenvironment{umonsThesisAbstract}{%begdef
+	\begin{abstract}
+}{%enddef
+	\end{abstract}
+	\clearforchapter
+}
+
 
 
 
