@@ -326,8 +326,28 @@
 }
 
 
+% Numbering
+% ---------
+
+\setsecnumdepth{subsection}
 
 
+% Styles
+% ------
+
+% umons pagestyle
+\makepagestyle{umons}
+
+\makerunningheadwidth{umons}{\textwidth}
+\makeheadrule{umons}{\textwidth}{\normalrulethickness}
+\makeoddhead{umons}{\rightmark}{}{\thepage}
+\makeevenhead{umons}{\thepage}{}{\leftmark}
+
+\makepsmarks{umons}{%
+	\nouppercaseheads
+	\createmark{chapter}{both}{nonumber}{}{}
+	\clearmark{section}
+}
 
 % Commands definition
 % -------------------

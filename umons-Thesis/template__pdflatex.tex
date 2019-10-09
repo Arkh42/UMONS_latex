@@ -1,0 +1,232 @@
+
+%%        %%
+% PREAMBLE %
+% ======== %
+
+
+% Document class
+% --------------
+
+\documentclass[%
+	% Page layout
+	papersize=a4,%
+	pagelayout=default,%
+	% Fonts and encoding
+	fontname=latinmodern,%
+	fontsize=11pt,%
+	% Printing
+	twoside,%
+	final,%
+	% Faculty
+	faculty=fpms%
+]{umons-Thesis}%
+
+% Styles
+\headstyles{default}
+\pagestyle{umons}
+
+%\chapterstyle{hangnum}
+%\chapterstyle{bianchi}
+%\chapterstyle{bringhurst}
+%\chapterstyle{brotherton}
+%\chapterstyle{chappell}
+%\chapterstyle{crosshead}
+%\chapterstyle{dash}
+%\chapterstyle{demo2}
+%\chapterstyle{demo3}
+%\chapterstyle{dowding}
+%\chapterstyle{ell}
+%\chapterstyle{ger}
+%\chapterstyle{komalike}
+%\chapterstyle{lyhne}
+%\chapterstyle{madsen}
+%\chapterstyle{ntglike}
+%\chapterstyle{pedersen}
+%\chapterstyle{southall}
+%\chapterstyle{tandh}
+%\chapterstyle{	thatcher}
+%\chapterstyle{veelo}
+%\chapterstyle{verville}
+%\chapterstyle{wilsondob}
+
+
+% Language and typography
+% -----------------------
+
+\usepackage[main=english, french]{babel}
+
+\usepackage[autostyle=true]{csquotes}
+
+\usepackage[babel=true]{microtype}
+
+
+% Floats
+% ------
+
+\usepackage{float}
+
+\usepackage{graphicx}
+%\usepackage{subcaption}
+
+\usepackage{booktabs}
+
+
+% Science
+% -------
+
+% Mathematics
+\usepackage{mathtools}
+
+% Units
+\usepackage{siunitx}
+\sisetup{%
+	binary-units = true,%	loads units for binary data (\bit, \byte)
+}
+
+
+% Bibliography
+% ------------
+
+%\usepackage[%
+%	backend=biber,%
+%	bibstyle=numeric,%			prints a numeric label
+%	citestyle=numeric-comp,%	compact variant of the numeric style which prints a list of more than two consecutive numbers as a range
+%]{biblatex}
+
+
+% Hyperlinks and PDF metadata
+% ---------------------------
+
+\usepackage[%
+	hidelinks,%				hides links (removing color and border)
+	pdfusetitle,%			uses the content of \author{}... for metadata
+	pdfdisplaydoctitle,%	displays document title instead of file name in title bar
+]{hyperref}
+
+
+% References
+% ----------
+
+\usepackage{cleveref}
+
+
+
+% Packages for test
+% -----------------
+
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+
+
+%%        %%
+% DOCUMENT %
+% ======== %
+
+
+% Metadata
+% --------
+
+\author{Alexandre \textsc{Quenon}}
+
+\date{\today}
+
+\title{My magnificent title}
+%\title{My very long two-line PhD thesis title}
+%\title{My supra long PhD thesis title just to verify that nothing is broken because of a long title}
+
+\committeeMembers{%
+	Prof. X, Chair \\
+	Prof. Y, Thesis director \\
+	Prof. Z, Thesis co-director \\
+	Member A
+}
+
+
+
+% Text
+% ----
+
+\begin{document}
+	
+\umonsThesisTitlePage
+
+
+\frontmatter
+
+	\begin{umonsThesisAbstract}
+		This is my abstract.
+	\end{umonsThesisAbstract}
+
+	
+	\tableofcontents*
+	
+
+\mainmatter
+
+	\chapter{My first chapter}
+	
+		\lipsum[1-3]
+		
+		
+		\section{A section}
+		
+			\lipsum[4-6]
+			
+			
+			\subsection{A subsection}
+			
+				\lipsum[7-9]
+				
+				\subsubsection{A subsubsection}
+				
+					\lipsum[10]
+					
+					\paragraph{A paragraph}
+					
+						\lipsum[11]
+						
+						\subparagraph{A subparagraph}
+						
+							\blindtext
+			
+			\subsection{A second subsection}
+			
+				\lipsum[13-15]
+		
+		
+		\section{Another section}
+		
+			\lipsum[4-6]
+			
+			
+			\subsection{Another subsection}
+			
+				\lipsum[7-9]
+			
+			\subsection{Again a subsection}
+			
+				\blindtext
+	
+	
+	\chapter{My second chapter}
+	
+		\Blindtext[16]
+		
+	
+	\appendix
+	\appendixpage
+	
+	
+	\chapter{My first appendix}
+	
+		\Blindtext[8]
+	
+	\chapter{My second appendix}
+	
+		\Blindtext[8]
+
+
+\backmatter
+
+\end{document}
