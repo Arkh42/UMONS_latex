@@ -7,7 +7,7 @@ The umons-Thesis class
 This class defines a layout for PhD theses writtent at the University of Mons
 It aims to help the authors to use LaTeX without facing troubles due to layout considerations.
 
-The class is based on the `memoir` class.
+The class is built upon the `memoir` class.
 
 
 
@@ -29,6 +29,56 @@ Values written in **bold** are default values.
 |	final		|	**true**, false		|	Prints the text for final version.								|	
 |	draft		|	true, **false**		|	Prints black boxes to show overfull \hbox and others.			|
 |	faculty		|	fau, fmp, fpms, fpse, fs, fti, fweg, shs, law	|	Defines faculty-related options and colors.	|
+
+
+
+Styles
+------
+
+
+Besides the class options, the user can style:
+1. the headinds (chapter, section...)
+2. the page header and footer
+
+You can find a template document generated with different styles in the [styles](./styles) directory.
+
+
+### Styling the headings
+
+As `umons-Thesis` is built upon `memoir`, the user can style the headings by using the `\headstyles{}` command.
+Available styles from `memoir` are:
+- bringhurst
+- crosshead
+- default
+- dowding
+- komalike
+- memman
+- ntglike
+- tandh
+- wilsondob
+
+I have added two styles:
+- quenon (my own)
+- umons (based on the Word template for PhD thesis)
+
+
+### Styling the page
+
+The page style defines the header and the footer of all pages of the document.
+Available styles from `memoir`, which can be accessed through the `\pagestyle{}` command, are:
+- companion
+- empty
+- headings
+- plain
+- ruled
+- Ruled
+- simple
+
+I have added one style:
+- umons (based on the Word template for PhD thesis)
+
+You can use the `\uppercaseheads` and `\nouppercaseheads` commands
+to automatically uppercase the text in the header and footer.
 
 
 
