@@ -123,6 +123,7 @@
 			\newcommand*{\memfontfamily}{lmr}
 			\newcommand*{\memfontenc}{T1}
 			\newcommand*{\memfontpack}{lmodern}
+			\RequirePackage{fix-cm}
 		}{}
 		\ifdefstring{\umonsThesis@fontname}{newcentury}{% if true
 			\ClassInfo{umons-Thesis}{Font: New Century Schoolbook}
@@ -218,6 +219,10 @@
 
 % Load inputenc if necessary
 \ifboolexpr{ not bool{luatex} and bool{pdf} }{%true
+	\ifdefstring{\umonsThesis@fontname}{latinmodern}{% if true
+		\DeclareFontShape{T1}{lmr}{b}{sc}{<->ssub*cmr/bx/sc}{}
+		\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{}
+	}{}
 	\RequirePackage[utf8]{inputenc}
 }{%false
 }
@@ -332,8 +337,8 @@
 \setsecnumdepth{subsection}
 
 
-% Styles
-% ------
+% Styles: page
+% ------------
 
 % umons pagestyle
 \makepagestyle{umons}
@@ -342,19 +347,80 @@
 \makeheadrule{umons}{\textwidth}{\normalrulethickness}
 \makeoddhead{umons}{\rightmark}{}{\thepage}
 \makeevenhead{umons}{\thepage}{}{\leftmark}
+\makeoddfoot{umons}{}{}{}
 
 \makepsmarks{umons}{%
 	\nouppercaseheads
 	\createmark{chapter}{both}{nonumber}{}{}
 	\clearmark{section}
+	\aliaspagestyle{chapter}{empty}
 }
 
-% Commands definition
-% -------------------
-%\newcommand*{cmd}{def}
-%\renewcommand*{cmd}{def}
-%\DeclareRobustCommand*{cmd}{def}
-%
-%\newcommand{cmd}{def}
-%\renewcommand{cmd}{def}
-%\DeclareRobustCommand{cmd}{def}
+
+% Styles: chapter heading
+% -----------------------
+
+% umons chapterstyle
+\newif\ifchapternonum
+\makechapterstyle{umons}{%
+	% Set the fonts
+	\renewcommand{\chapnamefont}{\sffamily\huge\mdseries}%
+	\renewcommand{\chapnumfont}{\chapnamefont}%
+	\renewcommand{\chaptitlefont}{\sffamily\Huge\bfseries\raggedright}%
+	% Erase print commands because everything will be printed by \printchaptertitle
+	\renewcommand{\printchaptername}{}
+	\renewcommand{\printchapternum}{}
+	\renewcommand{\printchapternonum}{\chapternonumtrue}
+	\renewcommand{\afterchapternum}{}%
+	% Format the print
+	\renewcommand{\printchaptertitle}[1]{%
+		\noindent%
+		\ifchapternonum
+			\chaptitlefont ##1
+		\else
+			\begin{tabularx}{\textwidth}{lX}%
+				\mbox{\chapnamefont\@chapapp\space\chapnumfont\thechapter\hspace*{1em}} & 
+				\parbox[t]{\linewidth}{\chaptitlefont ##1}
+			\end{tabularx}
+		\fi
+	}
+}
+
+
+% Styles: headings
+% ----------------
+
+% umons headstyle
+\makeheadstyles{umons}{%
+	% chapter
+	\chapterstyle{umons}
+	% section
+	\setsecheadstyle{\sffamily\Large\bfseries\raggedright}%
+	% subsection
+	\setsubsecheadstyle{\sffamily\large\mdseries\raggedright}%
+	% subsubsection
+	\setsubsubsecheadstyle{\sffamily\normalsize\mdseries\raggedright}%
+	% paragraph
+	\setafterparaskip{-1em}%
+	\setparaheadstyle{\sffamily\normalsize\slshape}%
+	% subparagraph
+	\setaftersubparaskip{-1em}%
+	\setsubparaheadstyle{\sffamily\normalsize\itshape}%
+}
+
+% quenon headstyle
+\makeheadstyles{quenon}{%
+	% chapter
+	% section
+	\setsecheadstyle{\Large\bfseries\scshape\raggedright}%
+	% subsection
+	\setsubsecheadstyle{\large\bfseries\raggedright}%
+	% subsubsection
+	\setsubsubsecheadstyle{\normalfont\normalsize\bfseries\raggedright}%
+	% paragraph
+	\setafterparaskip{-1em}%
+	\setparaheadstyle{\normalfont\normalsize\slshape\addperiod}%
+	% subparagraph
+	\setaftersubparaskip{-1em}%
+	\setsubparaheadstyle{\normalfont\normalsize\itshape\addperiod}%
+}
